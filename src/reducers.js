@@ -12,7 +12,7 @@ const trends = (state = initialState, action) => {
     case GET_TREND:
       return 'foo';
     case RECEIVE_TREND:
-      return 'bar';
+      return 'bar'; // update state with the JSON here
     default:
       return state
   }
