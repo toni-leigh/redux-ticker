@@ -23,9 +23,11 @@ setInterval(() => {
 class App extends Component {
   render() {
     return (
-      <Provider store={ store }>
-        <ConnectChart />
-      </Provider>
+      <div className='App'>
+        <Provider store={ store }>
+          <ConnectChart />
+        </Provider>
+      </div>
     );
   }
 }

@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ChartRow /> with negative change above arrow threshold 1`] = `
+<div
+  className="chart-row chart-row--down"
+>
+  <span
+    className="chart-row__bid"
+  >
+    5000
+  </span>
+  <span
+    className="chart-row__extra"
+  >
+    [
+    -2.0
+    , 
+    -0.040%
+    ]
+  </span>
+  <span
+    className="chart-row__arrows"
+  >
+    ↓↓↓↓↓↓
+  </span>
+</div>
+`;
+
+exports[`<ChartRow /> with negative change below arrow threshold 1`] = `
+<div
+  className="chart-row chart-row--down"
+>
+  <span
+    className="chart-row__bid"
+  >
+    5000
+  </span>
+  <span
+    className="chart-row__extra"
+  >
+    [
+    -0.20
+    , 
+    -0.0040%
+    ]
+  </span>
+  <span
+    className="chart-row__arrows"
+  >
+    
+  </span>
+</div>
+`;
+
+exports[`<ChartRow /> with no change 1`] = `
+<div
+  className="chart-row chart-row--down"
+>
+  <span
+    className="chart-row__bid"
+  >
+    5000
+  </span>
+  <span
+    className="chart-row__extra"
+  >
+    [
+    0.0
+    , 
+    0.0%
+    ]
+  </span>
+  <span
+    className="chart-row__arrows"
+  >
+    
+  </span>
+</div>
+`;
+
+exports[`<ChartRow /> with positive change above arrow threshold 1`] = `
+<div
+  className="chart-row chart-row--up"
+>
+  <span
+    className="chart-row__bid"
+  >
+    5000
+  </span>
+  <span
+    className="chart-row__extra"
+  >
+    [
+    2.0
+    , 
+    0.040%
+    ]
+  </span>
+  <span
+    className="chart-row__arrows"
+  >
+    ↑↑↑↑↑↑
+  </span>
+</div>
+`;
+
+exports[`<ChartRow /> with positive change below arrow threshold 1`] = `
+<div
+  className="chart-row chart-row--up"
+>
+  <span
+    className="chart-row__bid"
+  >
+    5000
+  </span>
+  <span
+    className="chart-row__extra"
+  >
+    [
+    0.20
+    , 
+    0.0040%
+    ]
+  </span>
+  <span
+    className="chart-row__arrows"
+  >
+    
+  </span>
+</div>
+`;

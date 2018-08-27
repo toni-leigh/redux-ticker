@@ -1,0 +1,24 @@
+.chart-row {
+  font-size: 24px;
+  font-family: monospace;
+}
+
+.chart-row__bid {
+  margin-right: 5px;
+}
+
+.chart-row--up {
+  color: green;
+}
+
+.chart-row--down {
+  color: red;
+}
+
+.chart-row__extra {
+  font-size: 12px;
+  color: grey;
+  margin-right: 15px;
+  width: 116px;
+  display: inline-block;
+}

@@ -4,11 +4,51 @@ exports[`<Chart /> 1`] = `
 <div
   className="chart"
 >
-  <div>
-    1
+  <div
+    className="chart-row chart-row--down"
+  >
+    <span
+      className="chart-row__bid"
+    >
+      1
+    </span>
+    <span
+      className="chart-row__extra"
+    >
+      [
+      0.0
+      , 
+      0.0%
+      ]
+    </span>
+    <span
+      className="chart-row__arrows"
+    >
+      
+    </span>
   </div>
-  <div>
-    2
+  <div
+    className="chart-row chart-row--up"
+  >
+    <span
+      className="chart-row__bid"
+    >
+      2
+    </span>
+    <span
+      className="chart-row__extra"
+    >
+      [
+      1.0
+      , 
+      50%
+      ]
+    </span>
+    <span
+      className="chart-row__arrows"
+    >
+      ↑↑↑
+    </span>
   </div>
 </div>
 `;
