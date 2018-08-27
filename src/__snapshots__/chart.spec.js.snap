@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Chart /> 1`] = `
+<div
+  className="chart"
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+</div>
+`;
