@@ -1,26 +1,17 @@
-const http = require('http');
+const express = require('express');
 const request = require('request');
-
-const hostname = '127.0.0.1';
-
-const port = 3001;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}`);
-});
+const app = express();
 
 const url = 'https://api.bitfinex.com/v1/pubticker/btcgbp';
+let tickerData;
 
-request(url, (err, response, body) => {
-  if (err) {
-    console.log('error:', error);
-  } else {
-    console.log('body', body);
-  }
+app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/ticker', (req, res) => {
+  request(url, (err, response, body) => {
+    tickerData = err ? err : body;
+  });
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.send(tickerData);
 });
+
+app.listen(3001, () => console.log('Example app listening on port 3001!'));
