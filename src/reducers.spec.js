@@ -13,6 +13,11 @@ describe('trends', () => {
     expect(trends({}, { type: GET_TREND} )).toEqual('foo');
   });
   test('when action type is RECEIVE_TREND', () => {
-    expect(trends({}, { type: RECEIVE_TREND} )).toEqual('bar');
+    expect(trends(
+      { trends: [] }, 
+      { json: { foo: 'bar' }, type: RECEIVE_TREND } 
+    )).toEqual(
+      { trends: [{ foo: 'bar' }]}
+    );
   });
 });

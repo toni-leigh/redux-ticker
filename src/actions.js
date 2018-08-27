@@ -4,6 +4,7 @@ const RECEIVE_TREND = 'RECEIVE_TREND';
 const getTrend = (fetchMethod, url) => {
   return function(dispatch) {
     return fetchMethod(url)
+      .then(response => response.json())
       .then(json => {
         dispatch(receiveTrend(json));
       }

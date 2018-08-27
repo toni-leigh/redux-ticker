@@ -7,14 +7,11 @@ import trends from './reducers';
 
 import fetch from 'cross-fetch';
 
-import {
-  getTrend,
-  receiveTrend
-} from './actions';
+import { getTrend } from './actions';
 
 const store = createStore(
   trends, 
-  { items: [] }, 
+  { trends: [] }, 
   applyMiddleware(thunkMiddleware)
 );
 
@@ -24,8 +21,10 @@ const unsubscribe = store.subscribe(() => {
   console.log(store.getState())
 });
 
-store.dispatch(getTrend(fetch, 'https://api.bitfinex.com/v1/pubticker/btcgbp'));
-store.dispatch(receiveTrend());
+setInterval(() => {
+  store.dispatch(getTrend(fetch, 'http://127.0.0.1:3001/ticker'));
+}, 30000);
+
 
 class App extends Component {
   render() {

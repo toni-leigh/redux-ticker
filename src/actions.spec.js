@@ -9,33 +9,47 @@ describe('getTrend', () => {
   let dispatchSpy,
       fetchSpy,
       getTrendFunction,
-      thenSpy,
-      thenSpyCallback,
+      thenDispatchSpy,
+      thenDispatchSpyCallback,
+      thenJSONSpy,
+      thenJSONSpyCallback,      
       url;
 
   beforeAll(() => {
     url = 'https://api.bitfinex.com/v1/pubticker/btcgbp';
 
     dispatchSpy = jest.fn();
-    thenSpy = jest.fn();
-    fetchSpy = jest.fn().mockReturnValue({ then: thenSpy });
+    thenDispatchSpy = jest.fn();
+    thenJSONSpy = jest.fn().mockReturnValue({ then: thenDispatchSpy });
+    fetchSpy = jest.fn().mockReturnValue({ then: thenJSONSpy });
 
     getTrendFunction = getTrend(fetchSpy, url);
     getTrendFunction(dispatchSpy);
 
-    thenSpyCallback = thenSpy.mock.calls[0][0];
+    thenDispatchSpyCallback = thenDispatchSpy.mock.calls[0][0];
+    thenJSONSpyCallback = thenJSONSpy.mock.calls[0][0];
   });
 
   test('fetch call', () => {
     expect(fetchSpy).toHaveBeenCalledWith(url);
   });
 
-  test('then call', () => {
-    expect(thenSpy).toHaveBeenCalled();
+  test('then json call', () => {
+    expect(thenJSONSpy).toHaveBeenCalled();
+  });
+
+  test('json call', () => {
+    const jsonSpy = jest.fn();
+    thenJSONSpyCallback({ json: jsonSpy });
+    expect(jsonSpy).toHaveBeenCalled();
+  });
+
+  test('then dispatch call', () => {
+    expect(thenDispatchSpy).toHaveBeenCalled();
   });
 
   test('dispatch call', () => {
-    thenSpyCallback();
+    thenDispatchSpyCallback();
     expect(dispatchSpy).toHaveBeenCalled();
     const dispatchedAction = dispatchSpy.mock.calls[0][0];
     expect(dispatchedAction).toEqual(receiveTrend());

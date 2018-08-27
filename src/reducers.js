@@ -12,7 +12,9 @@ const trends = (state = initialState, action) => {
     case GET_TREND:
       return 'foo';
     case RECEIVE_TREND:
-      return 'bar'; // update state with the JSON here
+      const trends = state.trends;
+      trends.push(action.json);
+      return Object.assign({}, state, { trends });
     default:
       return state
   }
